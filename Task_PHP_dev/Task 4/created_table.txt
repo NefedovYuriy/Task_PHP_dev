@@ -1,0 +1,10 @@
+SQL запрос для создания таблицы спортсменов:
+CREATE TABLE `Competitions`.`Athlete_infor1` (`id` INT NOT NULL AUTO_INCREMENT , `fullName` VARCHAR(50) NOT NULL , `e-mail` VARCHAR(50) NULL DEFAULT NULL , `phone` VARCHAR(15) NULL DEFAULT NULL , `b.day` DATE NULL DEFAULT NULL , `age` INT NULL DEFAULT NULL , `createdDate` TIMESTAMP NULL DEFAULT NULL , `passportNumber` INT NULL DEFAULT NULL , `averagePlace` FLOAT NOT NULL , `biography` TEXT NULL DEFAULT NULL , `videoPresentation` TEXT NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+
+SQL запрос для отбора топ 5 спортсменов по количеству посещенных соревнований:
+CREATE TABLE `Competitions`.`Athlete_infor1` (`id` INT NOT NULL AUTO_INCREMENT , `fullName` VARCHAR(50) NOT NULL , `e-mail` VARCHAR(50) NULL DEFAULT NULL , `phone` VARCHAR(15) NULL DEFAULT NULL , `b.day` DATE NULL DEFAULT NULL , `age` INT NULL DEFAULT NULL , `createdDate` TIMESTAMP NULL DEFAULT NULL , `passportNumber` INT NULL DEFAULT NULL , `averagePlace` FLOAT NOT NULL , `biography` TEXT NULL DEFAULT NULL , `videoPresentation` TEXT NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB AND SELECT `Athlete_id`, count(`Athlete_id`)
+FROM `Results`
+GROUP BY `Athlete_id`
+HAVING count(`Athlete_id`)>1;
